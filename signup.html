@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>PowerMaul Signup — Reserve Your Spot</title>
+  <meta name="description" content="AI-powered circuit monitoring that detects electrical problems before they become emergencies. $299 install + 90 days free." />
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #0A0A0A;
+      color: #fff;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    header { text-align: center; margin-bottom: 24px; }
+    .wordmark {
+      color: #8B5CF6;
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+    }
+    .tagline {
+      color: #aaa;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+    h1 {
+      font-size: 32px;
+      line-height: 1.15;
+      margin: 16px 0 12px;
+      letter-spacing: -0.5px;
+    }
+    .subhead {
+      color: #c8c8c8;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0 0 20px;
+    }
+    .badge {
+      display: inline-block;
+      border: 1.5px solid #8B5CF6;
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .price-fine {
+      color: #888;
+      font-size: 13px;
+      margin: 0 0 24px;
+    }
+    form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+      color: #ccc;
+      gap: 6px;
+    }
+    .row { display: flex; gap: 12px; }
+    .row > label { flex: 1; }
+    input[type=text],
+    input[type=email],
+    input[type=tel],
+    select {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: inherit;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input:focus, select:focus { border-color: #8B5CF6; }
+    select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, #8B5CF6 50%), linear-gradient(135deg, #8B5CF6 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #ddd;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+    .check input { accent-color: #8B5CF6; width: 18px; height: 18px; margin-top: 2px; }
+    button.submit {
+      background: #8B5CF6;
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-size: 17px;
+      font-weight: 700;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.15s;
+    }
+    button.submit:hover { opacity: 0.92; }
+    button.submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .error {
+      color: #ff6b6b;
+      font-size: 14px;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+    }
+    .error.show { display: block; }
+    .confirm {
+      text-align: center;
+      padding: 32px 8px;
+    }
+    .confirm .check-icon { font-size: 64px; margin-bottom: 12px; }
+    .confirm h2 { font-size: 26px; margin: 0 0 16px; }
+    .confirm p { color: #ccc; font-size: 16px; line-height: 1.5; margin: 0 0 12px; }
+    .share-btn {
+      background: #8B5CF6;
+      color: #fff;
+      border: none;
+      padding: 14px 22px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 18px;
+    }
+    .share-btn:hover { opacity: 0.92; }
+    .copied { color: #8B5CF6; font-size: 13px; margin-top: 10px; display: none; }
+    .copied.show { display: block; }
+    footer { text-align: center; color: #555; font-size: 12px; margin-top: 32px; }
+    @media (max-width: 480px) {
+      h1 { font-size: 26px; }
+      .row { flex-direction: column; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="wordmark">PowerMaul</div>
+      <div class="tagline">Your panel. Always watched. Never guessing.</div>
+    </header>
+
+    <section>
+      <h1>Protect Your Home With CLIDE</h1>
+      <p class="subhead">AI-powered circuit monitoring that detects electrical problems before they become emergencies.</p>
+      <div class="badge">⚡ Founders Rate — $299 Install + 90 Days Free</div>
+      <p class="price-fine">Then $29/mo. Cancel anytime. Keep your equipment.</p>
+    </section>
+
+    <form id="signup-form" novalidate>
+      <label>Full Name
+        <input type="text" name="name" placeholder="Your legal name" required autocomplete="name" />
+      </label>
+      <label>Email
+        <input type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+      </label>
+      <label>Phone
+        <input type="tel" name="phone" placeholder="(512) 555-0100" required autocomplete="tel" />
+      </label>
+      <label>Street Address
+        <input type="text" name="street" required autocomplete="street-address" />
+      </label>
+      <div class="row">
+        <label>City
+          <input type="text" name="city" required autocomplete="address-level2" />
+        </label>
+        <label>State
+          <input type="text" name="state" value="TX" maxlength="2" required autocomplete="address-level1" />
+        </label>
+        <label>Zip
+          <input type="text" name="zip" required autocomplete="postal-code" inputmode="numeric" />
+        </label>
+      </div>
+      <label>Number of panels
+        <select name="panels" required>
+          <option value="">-- Select panels --</option>
+          <option value="1">1 panel</option>
+          <option value="2">2 panels</option>
+          <option value="3">3 or more panels</option>
+        </select>
+      </label>
+      <label>How did you hear about us?
+        <select name="referral">
+          <option value="">-- Optional --</option>
+          <option value="word_of_mouth">Word of mouth</option>
+          <option value="social_media">Social media</option>
+          <option value="dripping_springs">Dripping Springs community</option>
+          <option value="nextdoor">Nextdoor</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="founders" checked />
+        <span>I want founders rate pricing ($299 install + 90 days free)</span>
+      </label>
+
+      <button type="submit" class="submit" id="submit-btn">Reserve My Spot →</button>
+      <div class="error" id="error-msg">Something went wrong. Please try again or call (512) 314-0109</div>
+    </form>
+
+    <div id="confirmation" style="display:none;"></div>
+
+    <footer>© PowerMaul · Dripping Springs, TX</footer>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById('signup-form');
+      var btn = document.getElementById('submit-btn');
+      var errEl = document.getElementById('error-msg');
+
+      function panelCount(v) {
+        if (v === '1') return 1;
+        if (v === '2') return 2;
+        return 3;
+      }
+
+      function firstName(full) {
+        return (full || '').trim().split(/\s+/)[0] || 'friend';
+      }
+
+      function showConfirmation(first, phone) {
+        form.style.display = 'none';
+        var c = document.getElementById('confirmation');
+        c.style.display = 'block';
+        c.innerHTML =
+          '<div class="confirm">' +
+            '<div class="check-icon">✅</div>' +
+            '<h2>You\'re on the list, ' + escapeHtml(first) + '.</h2>' +
+            '<p>We\'ll contact you at ' + escapeHtml(phone) + ' within 48 hours to schedule your installation.</p>' +
+            '<p>Your founders rate is locked in. ⚡</p>' +
+            '<button class="share-btn" id="share-btn">Share with a neighbor →</button>' +
+            '<div class="copied" id="copied-msg">Copied to clipboard!</div>' +
+          '</div>';
+        document.getElementById('share-btn').addEventListener('click', share);
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
+      function share() {
+        var text = 'I just signed up for PowerMaul home circuit monitoring in Dripping Springs. $299 install + 90 days free. Check it out: www.powermaul.com/signup';
+        if (navigator.share) {
+          navigator.share({ title: 'PowerMaul', text: text, url: 'https://www.powermaul.com/signup' }).catch(function () {});
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            var c = document.getElementById('copied-msg');
+            c.classList.add('show');
+            setTimeout(function () { c.classList.remove('show'); }, 2500);
+          });
+        } else {
+          window.prompt('Copy this message:', text);
+        }
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errEl.classList.remove('show');
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var fd = new FormData(form);
+        var name = fd.get('name');
+        var email = fd.get('email');
+        var phone = fd.get('phone');
+        var street = fd.get('street');
+        var city = fd.get('city');
+        var state = (fd.get('state') || '').toString().toUpperCase();
+        var zip = fd.get('zip');
+        var referral = fd.get('referral') || null;
+
+        var payload = {
+          name: name,
+          email: email,
+          phone: phone,
+          address: street + ', ' + city + ', ' + state + ' ' + zip,
+          panel_count: panelCount(fd.get('panels')),
+          referral_source: referral || null,
+          plan: 'founders_lock',
+          source: 'founders-day'
+        };
+
+        btn.disabled = true;
+        var originalText = btn.textContent;
+        btn.textContent = 'Submitting...';
+
+        fetch('https://api.powermaul.com/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json().catch(function () { return {}; });
+        }).then(function () {
+          showConfirmation(firstName(name), phone);
+        }).catch(function () {
+          btn.disabled = false;
+          btn.textContent = originalText;
+          errEl.classList.add('show');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
